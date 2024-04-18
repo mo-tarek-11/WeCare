@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>WeCare</title>
+        <link rel="icon" type="image/x-icon" href="../static/logow.png">
+        <link rel="stylesheet" href="../static/css/register.css">
+        <link rel="stylesheet" href="../static/css/style.css">
+        <meta name = "viewport" content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+        <meta thhp-equive="X-UA-Compatible" content="IE-edge, chrome=1">
+        <meta name="vievpart" content="width=device-width, initial-scale-1.0">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+    </head>
+    <body onload="myFunction()">
+        <div id="loader"></div>
+        <script>
+            var myVar;
+            function myFunction() {myVar = setTimeout(showPage, 1);}
+            function showPage() {document.getElementById("loader").style.display = "none";document.getElementById("myDiv").style.display = "block";  }
+            </script>   
+        <div style="display:none;" id="myDiv" class="animate-bottom">
+    <!--------------------------------------------------------------------------NavBar Start----------------------------------------------------------------------->
+        <img src="../static/logow.png" alt="Logo" class="logo">
+        <div class="topnav">
+            <a class="active" href="{{url_for('home')}}"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="{{url_for('about')}}"><i class="fa-solid fa-hand-holding-heart"></i> About</a>
+            <a href="#c"><i class="fa-solid fa-envelope"></i> Contact</a>
+            <div class="dropdown">
+                <button class="dropbtn"><span>Features</span>
+                <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                <a href="{{url_for('heart')}}">Heart <i class="fa-solid fa-heart-pulse"></i></a>
+                <a href="{{url_for('diabetes')}}">Diabetes  <i class="fa-solid fa-disease"></i></a>
+                <a href="{{url_for('k')}}">Kideny  <i class='fas fa-pills'></i></a>
+                <a href="{{url_for('c')}}">Hepatitis C <i class="fa-solid fa-vial-virus"></i></a>
+                </div>
+            </div>
+        </div>
+    <!-------------------------------------------------------------------------- NavBar Ends -------------------------------------------------------------------------->
+    <section class="ved">
+        <video src="../static/ved1.mp4" autoplay="" muted="" loop="" id="svedio"></video>
+    </section>
+    <div class="content">
+        <section class="main">
+            <h1 id="title" class="ms">Heart Detection</h1>
+            <p class="fill" id="fill">Please fill all required info.</p>
+            <form id="survey-form" method="post" action="{{url_for('predict')}}" name="heart" onsubmit="return validateForm();">
+                <label class="form-label" id="name-label" for="age">Age</label>
+                <br>
+                <input id="age" name="age" type="text" placeholder="Enter your Age" required>
+                <br>
+                <label class="form-label" id="email-label" for="sex">Sex</label>
+                <br>
+                <!-- <input id="sex" name="sex" type="text" placeholder="Enter 1 for Male , 0 for Female" required> -->
+                <input type="radio" name="sex" value="Male"> Male
+                <input type="radio" name="sex" value="Female"> Female
+                <br><br>
+                <label class="form-label" id="email-label" for="Chest Pain Type (CP)">Chest pain type (cp)</label>
+                <br>
+                <input id="Chest Pain Type (CP)" name="Chest Pain Type (CP)" type="text" placeholder="Min 0 , Max 4" required>
+                <br>
+                <label class="form-label" id="email-label" for="Resting Blood Pressure (trestbps)">Resting blood pressure (trestbps)</label>
+                <br>
+                <input id="Resting Blood Pressure (trestbps)" name="Resting Blood Pressure (trestbps)" type="text" placeholder="Min 94 , Max 200" required>
+                <br>
+                <label class="form-label" id="email-label" for="Serum Cholestoral (chol) mg/dl">Serum cholestoral in mg/dl (chol)</label>
+                <br>
+                <input id="Serum Cholestoral (chol) mg/dl" name="Serum Cholestoral (chol) mg/dl" type="text" placeholder="Min 126  , Max 564" required>
+                <br>
+                <label class="form-label" id="email-label" for="Fasting Blood Sugar (fbs) > 120 mg/dl">Fasting blood sugar (fbs) > 120 mg/dl</label>
+                <br>
+                <!-- <input id="Fasting Blood Sugar (fbs) > 120 mg/dl" name="Fasting Blood Sugar (fbs) > 120 mg/dl" type="text" placeholder="Enter 1 for Yes , 0 for No" required> -->
+                <input type="radio" name="Fasting Blood Sugar (fbs) > 120 mg/dl" value="Yes" required> Yes
+                <input type="radio" name="Fasting Blood Sugar (fbs) > 120 mg/dl" value="No" required> No
+                <br><br>
+                <label class="form-label" id="name-label" for="Resting Electrocardiographic Results (restecg)">Resting electrocardiographic results (restecg)</label>
+                <br>
+                <input id="Resting Electrocardiographic Results (restecg)" name="Resting Electrocardiographic Results (restecg)" type="text" placeholder="Min 0 , Max 3" required>
+                <br>
+                <label class="form-label" id="name-label" for="Maximum Heart Rate Achieved (thalach)">Maximum heart rate achieved</label>
+                <br>
+                <input id="Maximum Heart Rate Achieved (thalach)" name="Maximum Heart Rate Achieved (thalach)" type="text" placeholder="Min 71  , Max 202" required>
+                <br>
+                <label class="form-label" id="name-label" for="Exercise Induced Angina (exang)">Exercise induced angina (exang)</label>
+                <br>
+                <!-- <input id="Exercise Induced Angina (exang)" name="Exercise Induced Angina (exang)" type="text" placeholder="Enter 1 for Yes , 0 for No" required> -->
+                <input type="radio" name="Exercise Induced Angina (exang)" value="Yes" required> Yes
+                <input type="radio" name="Exercise Induced Angina (exang)" value="No" required> No
+                <br><br>
+                <label class="form-label" id="name-label" for="ST depression (oldpeak)">Oldpeak (ST depression induced by exercise relative to rest)</label>
+                <br>
+                <input id="ST depression (oldpeak)" name="ST depression (oldpeak)" type="text" placeholder="Min 0  , Max 6.2" required>
+                <br>
+                <label class="form-label" id="name-label" for="Slope of the ST Segment (slope)">Slope of the peak exercise ST segment (slope)</label>
+                <br>
+                <input id="Slope of the ST Segment (slope)" name="Slope of the ST Segment (slope)" type="text" placeholder="Min 1  , Max 3" required>
+                <br>
+                <label class="form-label" id="name-label" for="Number of Major Vessels (ca)">Number of major vessels (ca)</label>
+                <br>
+                <input id="Number of Major Vessels (ca)" name="Number of Major Vessels (ca)" type="text" placeholder="Min 0  , Max 3" required>
+                <br>
+                <label class="form-label" id="name-label" for="Thal">Thal</label>
+                <br>
+                <input id="Thal" name="Thal" type="text" placeholder="3 = normal , 6 = fixed defect , 7 = reversable defect" required>
+                <br><br>
+                <button id="submit" type="submit">Submit</button>
+            </form>
+<br><br><br><br><br>
+        </section>
+</section>
+    </div>
+<br><br><br><br>
+<!-------------------------------------------------------------------------- Footer Start ---------------------------------------------------------------------->   
+<footer class="footer" id="c">
+    <div class="waves">
+        <div class="wave" id="wave1"></div>
+        <div class="wave" id="wave2"></div>
+        <div class="wave" id="wave3"></div>
+        <div class="wave" id="wave4"></div>
+    </div>
+    <ul class="social-icon">
+        <li class="social-icon__item"><a class="social-icon__link" href="https://www.facebook.com/Bale.11.m8">
+            <ion-icon name="logo-facebook"></ion-icon>
+            </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="https://x.com/mo_tareeek?t=A4B5bhpxH-ehnM56EjvETQ&s=09">
+            <ion-icon name="logo-twitter"></ion-icon>
+            </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="https://www.linkedin.com/in/mohamed-tarek-90954520a/">
+            <ion-icon name="logo-linkedin"></ion-icon>
+            </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="https://www.instagram.com/mo_tareek?igsh=M3BtYmVkb2N1cXl1">
+            <ion-icon name="logo-instagram"></ion-icon>
+        </a></li>
+    </ul>
+    <ul class="menu">
+        <li class="menu__item"><a class="menu__link" href="{{url_for('home')}}">Home</a></li>
+        <li class="menu__item"><a class="menu__link" href="{{url_for('about')}}">About</a></li>
+        <li class="menu__item"><a class="menu__link" href="{{url_for('features')}}">Features</a></li>
+    </ul>
+    <p id="end">&copy;2023 Mohamed Tarek</p>
+</footer>
+</div>
+<!-------------------------------------------------------------------------- Footer Ends ---------------------------------------------------------------------->
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script src="../static/js/heart.js"></script>        
+</body>
+</html>

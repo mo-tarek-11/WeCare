@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeCare</title>
+    <link rel="icon" type="image/x-icon" href="../static/logow.png">
+    <link rel="stylesheet" href="../static/css/register.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta thhp-equive="X-UA-Compatible" content="IE-edge, chrome=1">
+    <meta name="vievpart" content="width=device-width, initial-scale-1.0">
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+</head>
+<body onload="myFunction()">
+  <div id="loader"></div>
+  <script>
+    var myVar;
+    function myFunction() {myVar = setTimeout(showPage, 1);}
+    function showPage() {document.getElementById("loader").style.display = "none";document.getElementById("myDiv").style.display = "block";  }
+    </script>   
+  <div style="display:none;" id="myDiv" class="animate-bottom">
+<!-------------------------------------------------------------------------- NavBar Start -------------------------------------------------------------------------->    
+    <img src="../static/logow.png" alt="Logo" class="logo">
+    <div class="topnav">
+        <a class="active" href="{{url_for('home')}}"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="{{url_for('about')}}"><i class="fa-solid fa-hand-holding-heart"></i> About</a>
+        <a href="#c"><i class="fa-solid fa-envelope"></i> Contact</a>
+      </div>
+<!-------------------------------------------------------------------------- NavBar Ends --------------------------------------------------------------------------> 
+<!-------------------------------------------------------------------------- About Start -------------------------------------------------------------------------->   
+
+<!-------------------------------------------------------------------------- About Ends --------------------------------------------------------------------------> 
+<div class="infoo">
+  <div class="report">
+    <h1 class="re">The Report</h1>
+    <ul>
+      <h2>Kidney</h2>
+    <li id="l">Blood Pressure: <span>{{Blood_Pressure}}</span></li>
+    <li id="l">Specific Gravity: <span>{{Specific_Gravity}}</span></li>
+    <li id="l">Albumin: <span>{{Albumin}}</span> </li>
+    <li id="l">Sugar: <span>{{Sugar}}</span> </li>
+    <li id="l">Pus Cell: <span>{{Pus_Cell}}</span> </li>
+    <li id="l">Blood Glucose: <span>{{Blood_Glucose_Random}}</span> </li>
+    <li id="l">Blood Urea: <span>{{Blood_Urea}}</span> </li>
+    <li id="l">Sodium: <span>{{Sodium}}</span> </li>
+    <li id="l">Hemoglobin: <span>{{Hemoglobin}}</span> </li>
+    <li id="l">Hypertension: <span>{{Hypertension}}</span> </li>
+    <li id="l">Diabetes_Mellitus: <span>{{Diabetes_Mellitus}}</span> </li>
+    <li id="l">Appetite: <span>{{Appetite}}</span> </li>
+    <li id="l">Pedal Edema: <span>{{Pedal_Edema}}</span></li>
+    <li id="l">Anemia: <span>{{Anemia}}</span></li>
+    <li id="l" class="report_res"><span>{{ prediction_text }}</span></li>
+  </ul>
+  </div>
+  <div class="pnt"><button onclick="window.print()" id="printButton">Print Report</button></div>
+  <div class="Aboutt" id="aboutt">
+  <h1>The Result</h1>
+  <div class="leftt">
+  <h5 class='ress' id="result"> {{ prediction_text }}</h5> 
+  </div>
+  <div class="rightt">
+    <img src="../static/dc.png" alt="">
+  </div>
+</div>
+</div> 
+<br>
+<br> 
+<!-------------------------------------------------------------------------- Footer Start ---------------------------------------------------------------------->   
+    <footer class="footer" id="c">
+        <div class="waves">
+          <div class="wave" id="wave1"></div>
+          <div class="wave" id="wave2"></div>
+          <div class="wave" id="wave3"></div>
+          <div class="wave" id="wave4"></div>
+        </div>
+        <div class="fot">
+        <ul class="social-icon">
+          <li class="social-icon__item"><a class="social-icon__link" href="https://www.facebook.com/Bale.11.m8">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a></li>
+          <li class="social-icon__item"><a class="social-icon__link" href="https://x.com/mo_tareeek?t=A4B5bhpxH-ehnM56EjvETQ&s=09">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a></li>
+          <li class="social-icon__item"><a class="social-icon__link" href="https://www.linkedin.com/in/mohamed-tarek-90954520a/">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a></li>
+          <li class="social-icon__item"><a class="social-icon__link" href="https://www.instagram.com/mo_tareek?igsh=M3BtYmVkb2N1cXl1">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a></li>
+        </ul>
+        <ul class="menu" id="mn">
+          <li class="menu__item"><a class="menu__link" href="{{url_for('home')}}">Home</a></li>
+          <li class="menu__item"><a class="menu__link" href="{{url_for('about')}}">About</a></li>
+          <li class="menu__item"><a class="menu__link" href="{{url_for('features')}}">Features</a></li>
+        </ul>
+        <p id="end">&copy;2023 Mohamed Tarek</p>
+      </div>
+      </footer>
+    </div>
+<!-------------------------------------------------------------------------- Footer Ends ---------------------------------------------------------------------->   
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

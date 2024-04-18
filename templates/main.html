@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeCare</title>
+    <link rel="icon" type="image/x-icon" href="../static/logow.png">
+    <!-- <link rel="stylesheet" href="../static/css/register.css"> -->
+    <link rel="stylesheet" href="../static/css/style.css">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta thhp-equive="X-UA-Compatible" content="IE-edge, chrome=1">
+    <meta name="vievpart" content="width=device-width, initial-scale-1.0">
+<!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+<style>body {background-color: white;}</style>
+</head>   
+<body onload="myFunction()">
+  <div id="loader"></div>  
+  <script>
+    var myVar;
+    function myFunction() {myVar = setTimeout(showPage, 1);}
+    function showPage() {document.getElementById("loader").style.display = "none";document.getElementById("myDiv").style.display = "block";  }
+    function darkmode() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+    </script> 
+  <div style="display:none;" id="myDiv" class="animate-bottom">
+<!-------------------------------------------------------------------------- NavBar Start -------------------------------------------------------------------------->    
+<header class="hd">  
+<img src="../static/logow.png" alt="Logo" class="logo">
+    <div class="topnav">
+        <a class="active" href="{{url_for('home')}}"><i class="fa-solid fa-house"></i> Home</a>
+        <a href="#about" ><i class="fa-solid fa-hand-holding-heart"></i> About</a>
+        <a href="#c" ><i class="fa-solid fa-envelope"></i> Contact</a>
+        <!-- <a href="{{url_for('login')}}" id="lff" >Log In</a>
+        <a href="#about" id="lff">Sign Up</a> -->
+        <div class="dropdown">
+            <button class="dropbtn"><span class="fet">Features</span>
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="{{url_for('heart')}}" >Heart <i class="fa-solid fa-heart-pulse"></i></a>
+              <a href="{{url_for('diabetes')}}">Diabetes  <i class="fa-solid fa-disease"></i></a>
+              <a href="{{url_for('k')}}">Kideny  <i class='fas fa-pills'></i></a>
+              <a href="{{url_for('c')}}">Hepatitis C <i class="fa-solid fa-vial-virus"></i></a>
+            </div>
+          </div>
+          <button onclick="darkmode()" class="darkk"><i class="fa-solid fa-moon"></i></button>
+      </div></header>  
+<!-------------------------------------------------------------------------- NavBar Ends --------------------------------------------------------------------------> 
+<!-------------------------------------------------------------------------- About Start -------------------------------------------------------------------------->   
+    <div class="info">
+        <img src="../static/300ppi-1.jpg" alt="" class="bg">
+        <section class="ved">
+        <video src="../static/ved.mp4" autoplay="" muted="" loop="" id="fvedio" class="v"></video>
+      </section>
+        <div class="about" id="about">
+        <h1>About US</h1>
+        <div class="left">
+        <ul>
+        <li>WeCare will allows you to easily identify your own Chronic illnesse.</li>
+        <li>After symptoms are added it is analyzed. Subsequently, the results will be displayed.</li>
+        <li>If there is a disease it will mention its name and treatment for it with a suitable dosage.</li>
+        <li>Otherwise it will provide some to make you feel better.</li>
+        </ul>
+        </div>
+        <div class="right">
+        <ul>
+          <li>We aim to offer a Chronic disease detection application once the patient enters his symptoms.</li>
+          <li>To serve as a trustworthy initial diagnosis for doctors.</li>
+          <li>To be simple to use, especially for elderly individuals.</li>
+          <li>The website will be free for all.</li>
+          <li>The accuracy offered by the apps that supply this service is extremely low.</li>
+        </div>
+    </div>
+    </div>
+<!-------------------------------------------------------------------------- About Ends -------------------------------------------------------------------------->   
+<!-------------------------------------------------------------------------- Features Start ---------------------------------------------------------------------->   
+    <section class="Features" id="f">
+        <div class="row">
+          <h1>Our Features</h1>
+        </div>
+        <div class="row">
+          <!-- Column One -->
+          <div class="column">
+            <div class="card">
+                <a href="{{url_for('heart')}}" class="flinks">
+              <div class="icon">
+                <i class="fa-solid fa-heart-pulse"></i>
+              </div>
+              <h3>Heart Disease</h3>
+              <p>
+                By providing answers to certain questions or by adding symptoms, you can determine <br> the condition of your heart.
+              </p>
+            </div></a>
+          </div>
+          <!-- Column Two -->
+          <div class="column">
+            <div class="card">
+                <a href="{{url_for('diabetes')}}" class="flinks">
+              <div class="icon">
+                <i class="fa-solid fa-disease"></i>
+              </div>
+              <h3>Diabetes</h3>
+              <p>
+                Determine whether you have diabetes by providing answers to a few questions or <br> by adding some symptoms. 
+              </p>
+            </div></a>
+          </div>
+          <!-- Column Three -->
+          <div class="column">
+            <div class="card">
+                <a href="{{url_for('k')}}" class="flinks">
+              <div class="icon">
+                <i class='fas fa-pills'></i>
+              </div>
+              <h3>kideny</h3>
+              <p>
+                Determine whether you have kideny by providing answers to a few questions or <br> by adding some symptoms. 
+              </p>
+            </div></a>
+          </div>
+          <!-- Column four -->
+          <div class="column">
+            <div class="card">
+                <a href="{{url_for('c')}}" class="flinks">
+              <div class="icon">
+                <i class="fa-solid fa-vial-virus"></i>
+              </div>
+              <h3>Hepatitis C</h3>
+              <p>
+                Enter your answers to a few questions or add some symptoms to see if you have <br> Hepatitis C or not.
+              </p>
+            </div></a>
+          </div>
+        </div>
+      </section>
+<!-------------------------------------------------------------------------- Features Ends ---------------------------------------------------------------------->   
+
+<!-------------------------------------------------------------------------- Comments Start ---------------------------------------------------------------------->   
+      <section class="Features" id="com f">
+        <div class="row" id="p">
+          <h1>What Say Our Patients!</h1>
+        </div>
+        <div class="row">
+          <!-- Column One -->
+          <div class="column">
+            <div class="card" >
+              <div class="i">
+                    <img src="../static/p.jpg" alt="" class="k">              
+              </div>
+              <h3>John</h3>
+              <p>
+                This site really helps,<br> and I'm very appreciative of it <br> you should try it.
+              </p>
+            </div>
+          </div>
+          <!-- Column Two -->
+          <div class="column">
+            <div class="card">
+              <div class="i">
+                <img src="../static/w1.jpg" alt="" class="k"> 
+              </div>
+              <h3>Nada</h3>
+              <p>
+                I didn't think I was having a problem, but this website is really accurate regarding the problem. 
+              </p>
+            </div>
+          </div>
+          <!-- Column Three -->
+          <div class="column">
+            <div class="card">
+              <div class="i">
+                <img src="../static/m1.jpg" alt="" class="k"> 
+              </div>
+              <h3>Jack</h3>
+              <p>
+                I thought that I had a problem, but the information on this website <br> is quite correct. 
+              </p>
+            </div>
+          </div>
+          <!-- Column Four -->
+          <div class="column">
+            <div class="card">
+              <div class="i">
+                <img src="../static/w21.jpg" alt="" class="k"> 
+              </div>
+              <h3>Malek</h3>
+              <p>
+                It's crazy, but I still don't get <br>why this website is free <br> it's just amazing! 
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+<!-------------------------------------------------------------------------- Comments Ends ---------------------------------------------------------------------->   
+<br><br><br><br><br>
+
+<!-------------------------------------------------------------------------- Footer Start ---------------------------------------------------------------------->   
+    <footer class="footer" id="c">
+        <div class="waves">
+          <div class="wave" id="wave1"></div>
+          <div class="wave" id="wave2"></div>
+          <div class="wave" id="wave3"></div>
+          <div class="wave" id="wave4"></div>
+        </div>
+        <div class="fot">
+        <ul class="social-icon">
+          <li class="social-icon__item"><a class="social-icon__link" href="https://www.facebook.com/Bale.11.m8">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a></li>
+          <li class="social-icon__item"><a class="social-icon__link" href="https://x.com/mo_tareeek?t=A4B5bhpxH-ehnM56EjvETQ&s=09">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a></li>
+          <li class="social-icon__item"><a class="social-icon__link" href="https://www.linkedin.com/in/mohamed-tarek-90954520a/">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a></li>
+          <li class="social-icon__item"><a class="social-icon__link" href="https://www.instagram.com/mo_tareek?igsh=M3BtYmVkb2N1cXl1">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a></li>
+        </ul>
+        <ul class="menu">
+          <li class="menu__item"><a class="menu__link" href="{{url_for('home')}}"><span>Home</span></a></li>
+          <li class="menu__item"><a class="menu__link" href="#about"><span>About</span></a></li>
+          <li class="menu__item"><a class="menu__link" href="{{url_for('features')}}"><span>Features</span></a></li>
+        </ul>
+        <p id="end">&copy;2023 Mohamed Tarek</p>
+      </div>
+      </footer>
+    </div>
+
+<!-------------------------------------------------------------------------- Footer Ends ---------------------------------------------------------------------->   
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <!-- <script src="../static/js/main.js"></script> -->
+      <!-- <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> -->
+      <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script> -->
+</body>
+</html>
