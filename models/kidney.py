@@ -60,39 +60,6 @@ X = X.drop(["age","Red_Blood_Cells","Pus_Cell_Clumps",
 #Splitting the data into the training and testing set  
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.3, random_state = 42)  
 
-#clf_rnf=RandomForestClassifier()
-#parametrs_rnf={ 
- #   'n_estimators': [200, 500],
-  #  'max_features': [ 'sqrt', 'log2'],
-   # 'max_depth' : [4,5,6,7,8],
-    #'criterion' :['gini', 'entropy']
-#}
-#grid_forest=GridSearchCV(clf_rnf, parametrs_rnf, cv=6, n_jobs=-1)
-#grid_forest.fit(X_train,y_train)
-
-#best_model_rnf=grid_forest.best_estimator_
-#y_pred_rnf=best_model_rnf.predict(X_test)
-
-
-
-#cm_rnf = confusion_matrix(y_test, y_pred_rnf)
-#print("Confution matrix for model " f'{best_model_rnf} : \n',cm_rnf)
-#ac_rnf = accuracy_score(y_test, y_pred_rnf)
-#print("Accuracy score for model " f'{best_model_rnf} : ',ac_rnf)
-#cr_rnf = classification_report(y_test, y_pred_rnf)
-#print("classification_report for model " f'{best_model_rnf} : \n',cr_rnf)
-
-#print(best_model_rnf.score(X_train,y_train))
-#print(best_model_rnf.score(X_test,y_test))
-
-#pickle.dump(best_model_rnf, open('Kmodel.pkl' , 'wb'))
-
-#model = pickle.load(open('Kmodel.pkl' , 'rb'))
-
-#print(model.predict([[70,1.025,5,5,1,22,2,5,4,1,1,1,1,1]]))
-#print(model.predict([[80,1.02,0,0,0,93,33,144,13.3,0,0,1,0,0]]))
-
-
 
 clf = RandomForestClassifier(n_estimators=2, random_state=42)
 clf.fit(X_train,y_train)
